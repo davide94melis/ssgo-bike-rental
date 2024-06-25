@@ -1,0 +1,12 @@
+@import url('./views/noleggiaora-view.css');
+@import url('./views/wallet-view.css');
+@import url('./views/add-payment-method-view.css');
+@import url('./views/login-view.css');
+@import url('./views/register3-view.css');
+@import url('./views/gallery-tools-view.css');
+@import url('./views/admin-view-view.css');    html {
+      --lumo-border-radius-s: calc(var(--lumo-size-m) / 6);
+      --lumo-border-radius-m: calc(var(--lumo-size-m) / 2);
+      --lumo-border-radius-l: var(--lumo-size-m);
+
+    }
