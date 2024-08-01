@@ -1,5 +1,6 @@
 package com.davide94melis.ssgo.data;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -26,6 +27,7 @@ public class Person extends AbstractEntity {
     private boolean important;
 
     @OneToOne(mappedBy = "person", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @JsonBackReference
     private User user;
 
     public String getFirstName() {

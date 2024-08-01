@@ -1,6 +1,7 @@
 package com.davide94melis.ssgo.data;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import java.util.Set;
 
@@ -13,6 +14,7 @@ public class User extends AbstractEntity {
 
     @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinColumn(name = "person_id", referencedColumnName = "id")
+    @JsonManagedReference
     private Person person;
 
     @JsonIgnore
