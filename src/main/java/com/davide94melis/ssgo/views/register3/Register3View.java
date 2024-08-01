@@ -18,7 +18,7 @@ import com.vaadin.flow.router.Route;
 import com.vaadin.flow.server.auth.AnonymousAllowed;
 
 @PageTitle("Register-3")
-@Menu(icon = "line-awesome/svg/credit-card.svg", order = 6)
+//@Menu(icon = "line-awesome/svg/credit-card.svg", order = 6)
 @Route(value = "credit-card-form")
 @AnonymousAllowed
 public class Register3View extends Div {

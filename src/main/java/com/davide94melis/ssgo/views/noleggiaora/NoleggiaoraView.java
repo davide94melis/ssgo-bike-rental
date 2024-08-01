@@ -1,6 +1,8 @@
 package com.davide94melis.ssgo.views.noleggiaora;
 
 import com.davide94melis.ssgo.components.avataritem.AvatarItem;
+import com.davide94melis.ssgo.data.UserRepository;
+import com.davide94melis.ssgo.security.AuthenticatedUser;
 import com.vaadin.flow.component.Composite;
 import com.vaadin.flow.component.avatar.Avatar;
 import com.vaadin.flow.component.button.Button;
@@ -16,7 +18,9 @@ import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
 import com.vaadin.flow.router.RouteAlias;
 import com.vaadin.flow.server.auth.AnonymousAllowed;
+import com.vaadin.flow.spring.security.AuthenticationContext;
 import com.vaadin.flow.theme.lumo.LumoUtility.Gap;
+import org.springframework.security.core.userdetails.UserDetails;
 
 @PageTitle("Noleggia ora")
 @Menu(icon = "line-awesome/svg/map-marker-alt-solid.svg", order = 0)
@@ -25,7 +29,14 @@ import com.vaadin.flow.theme.lumo.LumoUtility.Gap;
 @AnonymousAllowed
 public class NoleggiaoraView extends Composite<VerticalLayout> {
 
-    public NoleggiaoraView() {
+    private final UserRepository userRepository;
+    private final AuthenticatedUser authenticatedUser;
+    private final AuthenticationContext authenticationContext;
+
+    public NoleggiaoraView(UserRepository userRepository, AuthenticatedUser authenticatedUser, AuthenticationContext authenticationContext) {
+        this.userRepository = userRepository;
+        this.authenticatedUser = authenticatedUser;
+        this.authenticationContext = authenticationContext;
         VerticalLayout layoutColumn2 = new VerticalLayout();
         Hr hr = new Hr();
         Button buttonPrimary = new Button();
@@ -47,17 +58,19 @@ public class NoleggiaoraView extends Composite<VerticalLayout> {
         layoutRow.setAlignItems(Alignment.CENTER);
         layoutRow.setJustifyContentMode(JustifyContentMode.END);
         avatarItem.setWidth("min-content");
-        setAvatarItemSampleData(avatarItem);
+        /*if(authenticationContext.isAuthenticated()){
+            setAvatarItemSampleData(avatarItem);
+        }*/
         getContent().add(layoutColumn2);
         layoutColumn2.add(hr);
         layoutColumn2.add(buttonPrimary);
         getContent().add(layoutRow);
         layoutRow.add(avatarItem);
     }
-
+/*
     private void setAvatarItemSampleData(AvatarItem avatarItem) {
-        avatarItem.setHeading("Aria Bailey");
-        avatarItem.setDescription("Endocrinologist");
+        avatarItem.setHeading(authenticationContext.getAuthenticatedUser(UserDetails.class).get().getUsername());
+        avatarItem.setDescription(String.valueOf(authenticatedUser.get().get().getName()));
         avatarItem.setAvatar(new Avatar("Aria Bailey"));
-    }
+    }*/
 }

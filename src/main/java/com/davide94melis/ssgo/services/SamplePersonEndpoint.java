@@ -1,6 +1,6 @@
 package com.davide94melis.ssgo.services;
 
-import com.davide94melis.ssgo.data.SamplePerson;
+import com.davide94melis.ssgo.data.Person;
 import com.vaadin.hilla.Endpoint;
 import com.vaadin.hilla.exception.EndpointException;
 import jakarta.annotation.security.RolesAllowed;
@@ -19,15 +19,15 @@ public class SamplePersonEndpoint {
         this.service = service;
     }
 
-    public Page<SamplePerson> list(Pageable page) {
+    public Page<Person> list(Pageable page) {
         return service.list(page);
     }
 
-    public Optional<SamplePerson> get(Long id) {
+    public Optional<Person> get(Long id) {
         return service.get(id);
     }
 
-    public SamplePerson update(SamplePerson entity) {
+    public Person update(Person entity) {
         try {
             return service.update(entity);
         } catch (OptimisticLockingFailureException e) {

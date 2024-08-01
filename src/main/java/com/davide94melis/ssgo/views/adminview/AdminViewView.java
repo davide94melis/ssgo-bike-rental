@@ -12,13 +12,15 @@ import com.vaadin.flow.router.Menu;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
 import com.vaadin.flow.server.auth.AnonymousAllowed;
+import jakarta.annotation.security.RolesAllowed;
+
 import java.util.ArrayList;
 import java.util.List;
 
 @PageTitle("Admin View")
 @Menu(icon = "line-awesome/svg/user-lock-solid.svg", order = 9)
 @Route(value = "admin-view")
-@AnonymousAllowed
+@RolesAllowed("ADMIN")
 public class AdminViewView extends Composite<VerticalLayout> {
 
     public AdminViewView() {

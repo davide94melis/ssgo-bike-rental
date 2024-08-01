@@ -15,11 +15,12 @@ import com.vaadin.flow.router.Menu;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
 import com.vaadin.flow.server.auth.AnonymousAllowed;
+import jakarta.annotation.security.RolesAllowed;
 
 @PageTitle("Wallet")
 @Menu(icon = "line-awesome/svg/money-check-alt-solid.svg", order = 1)
 @Route(value = "wallet")
-@AnonymousAllowed
+@RolesAllowed({"ADMIN", "USER"})
 public class WalletView extends Composite<VerticalLayout> {
 
     public WalletView() {

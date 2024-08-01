@@ -35,7 +35,7 @@ export default function MainLayout() {
     <AppLayout primarySection="drawer">
       <div slot="drawer" className="flex flex-col justify-between h-full p-m">
         <header className="flex flex-col gap-m">
-          <span className="font-semibold text-l">My App</span>
+          <span className="font-semibold text-l">Menu</span>
           <SideNav onNavigate={({ path }) => navigate(path!)} location={location}>
             {createMenuItems().map(({ to, title, icon }) => (
               <SideNavItem path={to} key={to}>
@@ -58,11 +58,11 @@ export default function MainLayout() {
                   document.location.reload();
                 }}
               >
-                Sign out
+                Log out
               </Button>
             </>
           ) : (
-            <Link to="/login">Sign in</Link>
+            <Link to="/login">Log in</Link>
           )}
         </footer>
       </div>

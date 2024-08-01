@@ -3,7 +3,7 @@ package com.davide94melis.ssgo.views.gallerytools;
 import com.davide94melis.ssgo.components.avataritem.AvatarItem;
 import com.davide94melis.ssgo.components.phonenumberfield.PhoneNumberField;
 import com.davide94melis.ssgo.components.pricefield.PriceField;
-import com.davide94melis.ssgo.data.SamplePerson;
+import com.davide94melis.ssgo.data.Person;
 import com.davide94melis.ssgo.services.SamplePersonService;
 import com.vaadin.flow.component.Composite;
 import com.vaadin.flow.component.Text;
@@ -119,7 +119,7 @@ public class GalleryToolsView extends Composite<VerticalLayout> {
         TabSheet tabSheet = new TabSheet();
         MultiSelectListBox textItems = new MultiSelectListBox();
         MultiSelectListBox avatarItems = new MultiSelectListBox();
-        Grid basicGrid = new Grid(SamplePerson.class);
+        Grid basicGrid = new Grid(Person.class);
         VerticalLayout layoutColumn4 = new VerticalLayout();
         Paragraph textMedium2 = new Paragraph();
         HorizontalLayout layoutRow3 = new HorizontalLayout();
