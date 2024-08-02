@@ -1,5 +1,7 @@
 package com.davide94melis.ssgo.views.profile;
 
+import com.davide94melis.ssgo.data.Person;
+import com.davide94melis.ssgo.data.PersonRepository;
 import com.davide94melis.ssgo.security.AuthenticatedUser;
 import com.vaadin.flow.component.Composite;
 import com.vaadin.flow.component.button.Button;
@@ -19,7 +21,6 @@ import com.vaadin.flow.router.Route;
 import com.vaadin.flow.spring.security.AuthenticationContext;
 import com.vaadin.flow.theme.lumo.LumoUtility.Gap;
 import jakarta.annotation.security.PermitAll;
-import org.springframework.security.core.userdetails.UserDetails;
 
 @PageTitle("Profile")
 @Menu(icon = "line-awesome/svg/user.svg", order = 7)
@@ -34,17 +35,19 @@ public class ProfileView extends Composite<VerticalLayout> {
     private final EmailField emailField;
     private final Button modifyInfoButton;
     private final Button updateInfoButton;
-    private final Button buttonSecondary;
+    private final Button annullaButton;
     private final HorizontalLayout layoutRow;
     private final VerticalLayout layoutColumn2;
     private final FormLayout formLayout2Col;
     private final AuthenticationContext authenticationContext;
     private final AuthenticatedUser authenticatedUser;
+    private final PersonRepository personRepository;
 
 
-    public ProfileView(AuthenticationContext authenticationContext, AuthenticatedUser authenticatedUser) {
+    public ProfileView(AuthenticationContext authenticationContext, AuthenticatedUser authenticatedUser, PersonRepository personRepository) {
         this.authenticationContext = authenticationContext;
         this.authenticatedUser = authenticatedUser;
+        this.personRepository = personRepository;
         layoutColumn2 = new VerticalLayout();
         H3 h3 = new H3();
         formLayout2Col = new FormLayout();
@@ -56,7 +59,7 @@ public class ProfileView extends Composite<VerticalLayout> {
         layoutRow = new HorizontalLayout();
         modifyInfoButton = new Button();
         updateInfoButton = new Button();
-        buttonSecondary = new Button();
+        annullaButton = new Button();
         getContent().setWidth("100%");
         getContent().getStyle().set("flex-grow", "1");
         getContent().setJustifyContentMode(JustifyContentMode.START);
@@ -90,10 +93,12 @@ public class ProfileView extends Composite<VerticalLayout> {
         modifyInfoButton.setWidth("min-content");
         modifyInfoButton.addThemeVariants(ButtonVariant.LUMO_PRIMARY);
         updateInfoButton.setText("Aggiorna informazioni");
+        updateInfoButton.addClickListener(event -> saveInfoProfile());
         updateInfoButton.setWidth("min-content");
         updateInfoButton.addThemeVariants(ButtonVariant.LUMO_PRIMARY);
-        buttonSecondary.setText("Annulla");
-        buttonSecondary.setWidth("min-content");
+        annullaButton.setText("Annulla");
+        annullaButton.addClickListener(event -> cancel());
+        annullaButton.setWidth("min-content");
         getContent().add(layoutColumn2);
         layoutColumn2.add(h3);
         layoutColumn2.add(formLayout2Col);
@@ -107,13 +112,44 @@ public class ProfileView extends Composite<VerticalLayout> {
     }
 
     public void modifyInfoProfile(){
-        layoutRow.remove(modifyInfoButton);
-        layoutRow.add(updateInfoButton);
-        layoutRow.add(buttonSecondary);
-        nameField.setEnabled(true);
-        surnameField.setEnabled(true);
-        dateOfBirth.setEnabled(true);
-        phoneField.setEnabled(true);
-        emailField.setEnabled(true);
+        updateButtonsAndFields(false, false);
+    }
+
+    public void saveInfoProfile(){
+        updateButtonsAndFields(true, false);
+
+        Person updatedPerson = authenticatedUser.get().orElseThrow().getPerson();   //Prendo la Person attuale
+        updatedPerson.setFirstName(nameField.getValue());
+        updatedPerson.setLastName(surnameField.getValue());
+        updatedPerson.setDateOfBirth(dateOfBirth.getValue());
+        updatedPerson.setPhone(phoneField.getValue());
+        updatedPerson.setEmail(emailField.getValue());
+        personRepository.save(updatedPerson);
+    }
+
+    public void cancel(){
+        nameField.setValue(String.valueOf(authenticatedUser.get().orElseThrow().getPerson().getFirstName()));
+        surnameField.setValue(String.valueOf(authenticatedUser.get().orElseThrow().getPerson().getLastName()));
+        dateOfBirth.setValue(authenticatedUser.get().orElseThrow().getPerson().getDateOfBirth());
+        phoneField.setValue(String.valueOf(authenticatedUser.get().orElseThrow().getPerson().getPhone()));
+        emailField.setValue(String.valueOf(authenticatedUser.get().orElseThrow().getPerson().getEmail()));
+        updateButtonsAndFields(false, true);
+    }
+
+    public void updateButtonsAndFields(boolean isSaving, boolean isCancel){
+        if(isSaving || isCancel){
+            layoutRow.remove(updateInfoButton);
+            layoutRow.remove(annullaButton);
+            layoutRow.add(modifyInfoButton);
+        }else{
+            layoutRow.remove(modifyInfoButton);
+            layoutRow.add(updateInfoButton);
+            layoutRow.add(annullaButton);
+        }
+        nameField.setEnabled(!(isSaving || isCancel));
+        surnameField.setEnabled(!(isSaving || isCancel));
+        dateOfBirth.setEnabled(!(isSaving || isCancel));
+        phoneField.setEnabled(!(isSaving || isCancel));
+        emailField.setEnabled(!(isSaving || isCancel));
     }
 }
