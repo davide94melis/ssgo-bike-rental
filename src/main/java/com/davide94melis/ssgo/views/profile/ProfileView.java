@@ -22,7 +22,7 @@ import com.vaadin.flow.spring.security.AuthenticationContext;
 import com.vaadin.flow.theme.lumo.LumoUtility.Gap;
 import jakarta.annotation.security.PermitAll;
 
-@PageTitle("Profile")
+@PageTitle("Profilo")
 @Menu(icon = "line-awesome/svg/user.svg", order = 7)
 @Route(value = "profile")
 @PermitAll

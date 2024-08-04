@@ -17,7 +17,7 @@ import com.vaadin.flow.router.Route;
 import com.vaadin.flow.server.auth.AnonymousAllowed;
 import jakarta.annotation.security.RolesAllowed;
 
-@PageTitle("Wallet")
+@PageTitle("Portafoglio")
 @Menu(icon = "line-awesome/svg/money-check-alt-solid.svg", order = 1)
 @Route(value = "wallet")
 @RolesAllowed({"ADMIN", "USER"})

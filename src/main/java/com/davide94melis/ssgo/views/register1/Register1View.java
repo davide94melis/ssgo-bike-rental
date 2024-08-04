@@ -19,7 +19,7 @@ import com.vaadin.flow.router.Route;
 import com.vaadin.flow.server.auth.AnonymousAllowed;
 import com.vaadin.flow.theme.lumo.LumoUtility.Gap;
 
-@PageTitle("Register-1")
+@PageTitle("Step 1")
 //@Menu(icon = "line-awesome/svg/user.svg", order = 4)
 @Route(value = "person-form")
 @AnonymousAllowed

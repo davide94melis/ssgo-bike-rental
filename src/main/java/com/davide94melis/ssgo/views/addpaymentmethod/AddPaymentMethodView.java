@@ -17,7 +17,7 @@ import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
 import jakarta.annotation.security.PermitAll;
 
-@PageTitle("Add Payment Method")
+@PageTitle("Aggiungi metodo di pagamento")
 @Menu(icon = "line-awesome/svg/credit-card.svg", order = 2)
 @Route(value = "add-payment-method")
 @PermitAll

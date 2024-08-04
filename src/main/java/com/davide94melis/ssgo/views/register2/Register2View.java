@@ -20,7 +20,7 @@ import com.vaadin.flow.theme.lumo.LumoUtility.Gap;
 import java.util.Arrays;
 import java.util.List;
 
-@PageTitle("Register-2")
+@PageTitle("Step 2")
 @Route(value = "address-form")
 @AnonymousAllowed
 public class Register2View extends Composite<VerticalLayout> {
