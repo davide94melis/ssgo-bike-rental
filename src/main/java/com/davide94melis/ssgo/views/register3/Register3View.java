@@ -17,7 +17,7 @@ import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
 import com.vaadin.flow.server.auth.AnonymousAllowed;
 
-@PageTitle("Register-3")
+@PageTitle("Step 3")
 //@Menu(icon = "line-awesome/svg/credit-card.svg", order = 6)
 @Route(value = "credit-card-form")
 @AnonymousAllowed
