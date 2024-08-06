@@ -1,6 +1,7 @@
 package com.davide94melis.ssgo.views.noleggiaora;
 
 import com.davide94melis.ssgo.components.avataritem.AvatarItem;
+import com.davide94melis.ssgo.components.googlemap.GoogleMap;
 import com.davide94melis.ssgo.data.UserRepository;
 import com.davide94melis.ssgo.security.AuthenticatedUser;
 import com.vaadin.flow.component.Composite;
@@ -39,6 +40,7 @@ public class NoleggiaoraView extends Composite<VerticalLayout> {
         this.authenticationContext = authenticationContext;
         VerticalLayout layoutColumn2 = new VerticalLayout();
         Hr hr = new Hr();
+        GoogleMap googleMap = new GoogleMap();
         Button buttonPrimary = new Button();
         HorizontalLayout layoutRow = new HorizontalLayout();
         AvatarItem avatarItem = new AvatarItem();
@@ -62,6 +64,7 @@ public class NoleggiaoraView extends Composite<VerticalLayout> {
             setAvatarItemSampleData(avatarItem);
         }*/
         getContent().add(layoutColumn2);
+        layoutColumn2.add(googleMap);
         layoutColumn2.add(hr);
         layoutColumn2.add(buttonPrimary);
         getContent().add(layoutRow);
