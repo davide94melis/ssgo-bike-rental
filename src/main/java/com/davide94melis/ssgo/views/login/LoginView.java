@@ -1,5 +1,6 @@
 package com.davide94melis.ssgo.views.login;
 
+import com.davide94melis.ssgo.views.BaseView;
 import com.vaadin.flow.component.Composite;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.html.Paragraph;
@@ -15,7 +16,7 @@ import com.vaadin.flow.server.auth.AnonymousAllowed;
 @PageTitle("Login")
 @Route(value = "login")
 @AnonymousAllowed
-public class LoginView extends Composite<VerticalLayout> {
+public class LoginView extends BaseView {
 
     public LoginView() {
         VerticalLayout layoutColumn2 = new VerticalLayout();

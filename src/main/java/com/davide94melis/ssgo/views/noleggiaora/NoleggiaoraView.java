@@ -4,6 +4,7 @@ import com.davide94melis.ssgo.components.avataritem.AvatarItem;
 import com.davide94melis.ssgo.components.googlemap.GoogleMap;
 import com.davide94melis.ssgo.data.UserRepository;
 import com.davide94melis.ssgo.security.AuthenticatedUser;
+import com.davide94melis.ssgo.views.BaseView;
 import com.vaadin.flow.component.Composite;
 import com.vaadin.flow.component.avatar.Avatar;
 import com.vaadin.flow.component.button.Button;
@@ -28,7 +29,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 @Route(value = "")
 @RouteAlias(value = "")
 @AnonymousAllowed
-public class NoleggiaoraView extends Composite<VerticalLayout> {
+public class NoleggiaoraView extends BaseView {
 
     private final UserRepository userRepository;
     private final AuthenticatedUser authenticatedUser;

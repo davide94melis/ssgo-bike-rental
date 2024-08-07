@@ -1,5 +1,6 @@
 package com.davide94melis.ssgo.views.register3;
 
+import com.davide94melis.ssgo.views.BaseDivView;
 import com.vaadin.flow.component.Component;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.button.ButtonVariant;
@@ -21,7 +22,7 @@ import com.vaadin.flow.server.auth.AnonymousAllowed;
 //@Menu(icon = "line-awesome/svg/credit-card.svg", order = 6)
 @Route(value = "credit-card-form")
 @AnonymousAllowed
-public class Register3View extends Div {
+public class Register3View extends BaseDivView {
 
     private TextField cardNumber;
     private TextField cardholderName;
