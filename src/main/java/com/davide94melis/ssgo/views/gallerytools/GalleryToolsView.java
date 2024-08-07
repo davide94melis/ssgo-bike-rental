@@ -5,6 +5,7 @@ import com.davide94melis.ssgo.components.phonenumberfield.PhoneNumberField;
 import com.davide94melis.ssgo.components.pricefield.PriceField;
 import com.davide94melis.ssgo.data.Person;
 import com.davide94melis.ssgo.services.SamplePersonService;
+import com.davide94melis.ssgo.views.BaseView;
 import com.vaadin.flow.component.Composite;
 import com.vaadin.flow.component.Text;
 import com.vaadin.flow.component.accordion.Accordion;
@@ -73,7 +74,7 @@ import org.springframework.data.domain.PageRequest;
 @Route(value = "gallery-tools")
 @RolesAllowed("ADMIN")
 @Uses(Icon.class)
-public class GalleryToolsView extends Composite<VerticalLayout> {
+public class GalleryToolsView extends BaseView {
 
     public GalleryToolsView() {
         HorizontalLayout layoutRow = new HorizontalLayout();

@@ -3,6 +3,7 @@ package com.davide94melis.ssgo.views.profile;
 import com.davide94melis.ssgo.data.Person;
 import com.davide94melis.ssgo.data.PersonRepository;
 import com.davide94melis.ssgo.security.AuthenticatedUser;
+import com.davide94melis.ssgo.views.BaseView;
 import com.vaadin.flow.component.Composite;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.button.ButtonVariant;
@@ -26,7 +27,7 @@ import jakarta.annotation.security.PermitAll;
 @Menu(icon = "line-awesome/svg/user.svg", order = 7)
 @Route(value = "profile")
 @PermitAll
-public class ProfileView extends Composite<VerticalLayout> {
+public class ProfileView extends BaseView {
 
     private final TextField nameField;
     private final TextField surnameField;

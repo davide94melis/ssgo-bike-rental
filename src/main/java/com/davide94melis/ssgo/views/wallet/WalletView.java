@@ -1,6 +1,7 @@
 package com.davide94melis.ssgo.views.wallet;
 
 import com.davide94melis.ssgo.components.pricefield.PriceField;
+import com.davide94melis.ssgo.views.BaseView;
 import com.vaadin.flow.component.Composite;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.button.ButtonVariant;
@@ -21,7 +22,7 @@ import jakarta.annotation.security.RolesAllowed;
 @Menu(icon = "line-awesome/svg/money-check-alt-solid.svg", order = 1)
 @Route(value = "wallet")
 @RolesAllowed({"ADMIN", "USER"})
-public class WalletView extends Composite<VerticalLayout> {
+public class WalletView extends BaseView {
 
     public WalletView() {
         FormLayout formLayout2Col = new FormLayout();

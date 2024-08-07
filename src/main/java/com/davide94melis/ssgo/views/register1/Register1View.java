@@ -1,5 +1,6 @@
 package com.davide94melis.ssgo.views.register1;
 
+import com.davide94melis.ssgo.views.BaseView;
 import com.vaadin.flow.component.Composite;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.button.ButtonVariant;
@@ -23,7 +24,7 @@ import com.vaadin.flow.theme.lumo.LumoUtility.Gap;
 //@Menu(icon = "line-awesome/svg/user.svg", order = 4)
 @Route(value = "person-form")
 @AnonymousAllowed
-public class Register1View extends Composite<VerticalLayout> {
+public class Register1View extends BaseView {
 
     private TextField nameField;
     private TextField surnameField;

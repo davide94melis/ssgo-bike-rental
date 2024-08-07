@@ -1,5 +1,6 @@
 package com.davide94melis.ssgo.views.register2;
 
+import com.davide94melis.ssgo.views.BaseView;
 import com.vaadin.flow.component.Composite;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.button.ButtonVariant;
@@ -23,7 +24,7 @@ import java.util.List;
 @PageTitle("Step 2")
 @Route(value = "address-form")
 @AnonymousAllowed
-public class Register2View extends Composite<VerticalLayout> {
+public class Register2View extends BaseView {
 
     private TextField addressTextField;
     private TextField zipCodeTextField;

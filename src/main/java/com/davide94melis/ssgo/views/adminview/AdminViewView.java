@@ -1,5 +1,6 @@
 package com.davide94melis.ssgo.views.adminview;
 
+import com.davide94melis.ssgo.views.BaseView;
 import com.vaadin.flow.component.Composite;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.button.ButtonVariant;
@@ -21,7 +22,7 @@ import java.util.List;
 @Menu(icon = "line-awesome/svg/user-lock-solid.svg", order = 9)
 @Route(value = "admin-view")
 @RolesAllowed("ADMIN")
-public class AdminViewView extends Composite<VerticalLayout> {
+public class AdminViewView extends BaseView {
 
     public AdminViewView() {
         H3 h3 = new H3();

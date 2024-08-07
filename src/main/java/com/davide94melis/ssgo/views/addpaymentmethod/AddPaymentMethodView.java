@@ -1,5 +1,6 @@
 package com.davide94melis.ssgo.views.addpaymentmethod;
 
+import com.davide94melis.ssgo.views.BaseDivView;
 import com.vaadin.flow.component.Component;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.button.ButtonVariant;
@@ -21,7 +22,7 @@ import jakarta.annotation.security.PermitAll;
 @Menu(icon = "line-awesome/svg/credit-card.svg", order = 2)
 @Route(value = "add-payment-method")
 @PermitAll
-public class AddPaymentMethodView extends Div {
+public class AddPaymentMethodView extends BaseDivView {
 
     private TextField cardNumber;
     private TextField cardholderName;
